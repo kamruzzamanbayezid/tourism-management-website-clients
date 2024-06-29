@@ -61,9 +61,10 @@ const Menubar = () => {
                               <NavLink className={({ isActive }) => isActive ? 'rounded-md bg-[#CCCCCC]' : ''} to='/allTouristSpots' ><li className="py-3 px-8 text-sm h-full">All Tourists Spot</li></NavLink>
                               <NavLink className={({ isActive }) => isActive ? 'rounded-md bg-[#CCCCCC]' : ''} to='/addTouristSpot' ><li className="py-3 px-8 text-sm h-full">Add Tourists Spot</li></NavLink>
                               <NavLink className={({ isActive }) => isActive ? 'rounded-md bg-[#CCCCCC]' : ''} to='/myList' ><li className="py-3 px-8 text-sm h-full">My List</li></NavLink>
+                              <NavLink className={({ isActive }) => isActive ? 'rounded-md bg-[#CCCCCC]' : ''} to='/about' ><li className="py-3 px-8 text-sm h-full">About</li></NavLink>
                               {
                                     user ?
-                                          <button onClick={handleLOgOut} className="px-5 py-2.5 relative rounded group overflow-hidden font-medium ml-8 w-40 inline-block bg-[#00095E] text-white">
+                                          <button onClick={handleLOgOut} className="px-5 py-2.5 relative rounded group overflow-hidden font-medium ml-8 w-40 inline-block bg-[#00095E] text-white mt-3">
                                                 <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 common-bg group-hover:h-full opacity-90"></span>
                                                 <span className="relative group-hover:text-white">Log Out</span>
                                           </button>

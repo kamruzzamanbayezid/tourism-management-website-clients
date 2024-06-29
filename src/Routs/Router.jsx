@@ -11,6 +11,7 @@ import MyList from "../Pages/MyList/MyList";
 import UpdateTouristSpot from "../Pages/UpdateTouristSpot/UpdateTouristSpot";
 import PrivateRoute from "./PrivateRoute";
 import SpecificCountries from "../Components/SpecificCountries/SpecificCountries";
+import About from "../Pages/About/About";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
                   {
                         path: '/login',
                         element: <Login />
+                  },
+                  {
+                        path: '/about',
+                        element: <About />
                   }
             ]
       }
