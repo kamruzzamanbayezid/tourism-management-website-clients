@@ -3,28 +3,38 @@ import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-const MyListTableRow = ({ touristSpot, handleDelete }) => {
+const MyListTableRow = ({ touristSpot, handleDelete, index }) => {
 
 
-      const { _id, spotName, averageCost, seasonality, travelTime } = touristSpot || {};
+      const { _id, spotName, countryName, image, averageCost, seasonality, travelTime } = touristSpot || {};
 
       return (
-            <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-                  <td className="p-3">
-                        <p className='text-sm lg:text-lg text-[#666]'>{spotName}</p>
+            <tr>
+                  <th>
+                        <span className='text-xl text-blue'>{index + 1}</span>
+                  </th>
+                  <td>
+                        <div className="flex items-center gap-3">
+                              <div className="avatar">
+                                    <div className="mask mask-squircle h-12 w-12">
+                                          <img
+                                                src={image}
+                                                alt="Avatar Tailwind CSS Component" />
+                                    </div>
+                              </div>
+                              <div>
+                                    <div className="font-bold font-josefin text-blue text-base lg:text-lg">{spotName}</div>
+                                    <div className="text-sm opacity-50">{countryName}</div>
+                              </div>
+                        </div>
                   </td>
-                  <td className="p-3">
-                        <p className='text-sm lg:text-lg text-[#666]'>{travelTime}</p>
+                  <td>
+                        <span className='text-blue'>{travelTime}</span>
+                        <br />
+                        <span className="badge badge-ghost text-blue badge-sm hidden md:flex">{seasonality}</span>
                   </td>
-                  <td className="p-3">
-                        <p className='text-sm lg:text-lg text-[#666]'>${averageCost}</p>
-                  </td>
-                  <td className="p-3">
-                        <p className="text-sm lg:text-lg dark:text-gray-600 text-[#666]">{seasonality}</p>
-                  </td>
-
-                  <td className="p-3 text-right text-[#666] flex items-center gap-3">
-
+                  <td className='text-blue font-bold'>${averageCost}</td>
+                  <th className="p-3 text-right text-[#666] flex items-center gap-3">
                         {/* update spot */}
                         <Link to={`/updateTouristSpot/${_id}`}>
                               <span className='text-[#666] text-3xl text-blue cursor-pointer'><CiEdit /></span>
@@ -32,7 +42,7 @@ const MyListTableRow = ({ touristSpot, handleDelete }) => {
 
                         {/* delete spot */}
                         <span onClick={() => handleDelete(_id)} className='text-[#666] text-3xl text-blue cursor-pointer'><MdDelete /></span>
-                  </td>
+                  </th>
             </tr>
 
       );
@@ -40,7 +50,8 @@ const MyListTableRow = ({ touristSpot, handleDelete }) => {
 
 MyListTableRow.propTypes = {
       touristSpot: PropTypes.object,
-      handleDelete: PropTypes.func
+      handleDelete: PropTypes.func,
+      index: PropTypes.number
 };
 
 export default MyListTableRow;
