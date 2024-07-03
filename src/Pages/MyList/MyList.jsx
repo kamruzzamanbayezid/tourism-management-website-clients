@@ -5,6 +5,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import MyListTableRow from "./MyListTableRow/MyListTableRow";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const MyList = () => {
 
@@ -14,9 +15,8 @@ const MyList = () => {
       const [touristSpots, setTouristSpots] = useState([]);
 
       useEffect(() => {
-            fetch(`http://localhost:5000/touristSpots/${email}`)
-                  .then(res => res.json())
-                  .then(data => setTouristSpots(data))
+            axios.get(`http://localhost:5000/touristSpots/${email}`, { withCredentials: true })
+                  .then(res => setTouristSpots(res.data))
       }, [email]);
 
       const handleDelete = (id) => {

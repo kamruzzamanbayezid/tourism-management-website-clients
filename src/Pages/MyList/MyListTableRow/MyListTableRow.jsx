@@ -33,7 +33,7 @@ const MyListTableRow = ({ touristSpot, handleDelete, index }) => {
                         <br />
                         <span className="badge badge-ghost text-blue badge-sm hidden md:flex">{seasonality}</span>
                   </td>
-                  <td className='text-blue font-bold'>${averageCost}</td>
+                  <td className='text-blue font-bold'>$ {averageCost}</td>
                   <th className="p-3 text-right text-[#666] flex items-center gap-3">
                         {/* update spot */}
                         <Link to={`/updateTouristSpot/${_id}`}>
@@ -41,7 +41,7 @@ const MyListTableRow = ({ touristSpot, handleDelete, index }) => {
                         </Link>
 
                         {/* delete spot */}
-                        <span onClick={() => handleDelete(_id)} className='text-[#666] text-3xl text-blue cursor-pointer'><MdDelete /></span>
+                        <span onClick={() => handleDelete(_id)} className='text-[#666] text-3xl text-blue cursor-pointer'><MdDelete className='hover:text-yellow-500'/></span>
                   </th>
             </tr>
 

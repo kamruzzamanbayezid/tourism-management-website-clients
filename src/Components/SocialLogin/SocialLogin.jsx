@@ -13,10 +13,8 @@ const SocialLogin = () => {
       const socialLogin = (media) => {
             media()
                   .then(() => {
-                        toast.success('Successfully Logged in!!')
-                        navigate(location?.state ? location?.state : '/login');
-                        
-
+                        toast.success('Successfully logged In')
+                        navigate(location?.state ? location?.state : '/login')
                   })
                   .catch(error => {
                         toast.error(error.message)
